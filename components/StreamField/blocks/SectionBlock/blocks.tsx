@@ -1,3 +1,4 @@
+import WagtailRichText from '../../../WagtailRichText';
 import type {
     RichTextBlockItem,
     LinkBlockValue,
@@ -7,7 +8,7 @@ import type {
 const RichTextBlock = ({ value }: RichTextBlockItem) => (
     // Use dangerouslySetInnerHTML for proper rendering of the 'value'
     // which is defined as a RichTextField in the backend.
-    <div dangerouslySetInnerHTML={{ __html: value }} />
+    <WagtailRichText value={value} />
 );
 
 const LinkBlock = ({ link, linkText }: LinkBlockValue) => (

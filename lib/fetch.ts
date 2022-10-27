@@ -34,7 +34,7 @@ async function fetchHelper(path: string, params: { [key: string]: string }) {
  */
 async function getAreWeHeadlessYetHomePageID() {
     const response = await fetchHelper('', {
-        type: 'areweheadlessyet.AreWeHeadlessYetHomePage',
+        type: 'pages.HomePage',
     });
 
     const items = response.items;
@@ -58,8 +58,8 @@ export async function getAreWeHeadlessYetHomePage() {
  */
 export async function getAreWeHeadlessYetTopics() {
     const response = await fetchHelper('', {
-        type: 'areweheadlessyet.AreWeHeadlessYetTopicPage',
-        fields: 'title,status_color,introduction',
+        type: 'pages.TopicPage',
+        fields: 'title,status,introduction',
     });
     return humps.camelizeKeys(response);
 }
@@ -69,7 +69,7 @@ export async function getAreWeHeadlessYetTopics() {
  */
 export async function getAreWeHeadlessYetTopicPages() {
     const response = await fetchHelper('', {
-        type: 'areweheadlessyet.AreWeHeadlessYetTopicPage',
+        type: 'pages.TopicPage',
         fields: '*',
     });
     return <Topic[]>humps.camelizeKeys(response.items);
@@ -81,7 +81,7 @@ export async function getAreWeHeadlessYetTopicPages() {
  */
 export async function getAreWeHeadlessYetTopicPage(slug: string) {
     const response = await fetchHelper('', {
-        type: 'areweheadlessyet.AreWeHeadlessYetTopicPage',
+        type: 'pages.TopicPage',
         slug: slug,
         fields: '*',
     });

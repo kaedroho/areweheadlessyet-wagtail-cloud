@@ -1,8 +1,9 @@
 import StreamFieldBlock from '../../../types';
+import { RichTextBlock } from '../../../WagtailRichText';
 
 export interface RichTextBlockItem extends StreamFieldBlock {
-    type: 'text';
-    value: string;
+    type: 'paragraph';
+    value: RichTextBlock[];
 }
 
 export interface LinkBlockValue {

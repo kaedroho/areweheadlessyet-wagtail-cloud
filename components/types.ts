@@ -1,5 +1,6 @@
 import type { IconChoice } from './HomeHero/Strapline';
 import { StatusColorChoice } from './StreamField/blocks/TopicsBlock/types';
+import { RichTextBlock } from './WagtailRichText';
 
 export default interface StreamFieldBlock {
     type: string;
@@ -13,7 +14,7 @@ export interface AreWeHeadlessYetHomePage {
     title: string;
     lastPublishedAt: string;
     straplineIcon: IconChoice;
-    straplineText: string;
+    straplineText: RichTextBlock[];
     body: Array<StreamFieldBlock>;
 }
 
@@ -22,7 +23,7 @@ export interface AreWeHeadlessYetTopicPage {
     meta: { [key: string]: string | boolean | null };
     title: string;
     lastPublishedAt: string;
-    statusColor: StatusColorChoice;
+    status: StatusColorChoice;
     introduction: string;
     body: Array<StreamFieldBlock>;
 }

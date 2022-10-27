@@ -3,6 +3,7 @@ import type { StreamFieldProps } from './types';
 import styles from './StreamField.module.scss';
 import { RichTextBlock } from './blocks/SectionBlock';
 import { RichTextBlockItem } from './blocks/SectionBlock/types';
+import { RichTextBlock as RichTextBlockValue } from '../WagtailRichText';
 
 const BLOCKS = {
     section: SectionBlock,
@@ -27,10 +28,10 @@ const StreamField = ({ body, topics, className }: StreamFieldProps) => {
                         </div>
                     );
                 }
-                if (blockType === 'text') {
+                if (blockType === 'paragraph') {
                     return (
                         <div key={i} className={styles.text}>
-                            <RichTextBlock {...(block as RichTextBlockItem)} />
+                            <RichTextBlock id={block.id} type="paragraph" value={block.value.paragraph as RichTextBlockValue[]} />
                         </div>
                     );
                 }

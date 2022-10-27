@@ -8,7 +8,7 @@ import { HeadlessBird } from '../SVG';
 import variables from '../../styles/variables.module.scss';
 
 export const TopicPageHero = ({
-    statusColor,
+    status,
     title,
     introduction,
 }: AreWeHeadlessYetTopicPage) => (
@@ -23,7 +23,7 @@ export const TopicPageHero = ({
         <div className={styles.hero__content}>
             <div className={styles.hero__status}>
                 <Image
-                    src={topicStatusImages[statusColor]}
+                    src={topicStatusImages[status]}
                     alt=""
                     layout="responsive"
                 />
